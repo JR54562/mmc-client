@@ -18,7 +18,7 @@ export default function Header(props) {
         </li>
       </ul>
       <div className="name">
-          <h1>My Music Collection</h1>
+          <h1>My Movies Collection</h1>
           </div>
     </div>
   );

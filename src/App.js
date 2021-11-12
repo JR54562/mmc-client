@@ -1,10 +1,10 @@
-
 import React, { Component } from "react";
-import { Route } from 'react-router-dom';
+import { Route } from "react-router-dom";
 import "bootswatch/dist/yeti/bootstrap.min.css";
-import Header from './components/Header';
+import Header from "./components/Header";
 import "./App.css";
 import Main from "./components/Main";
+import Signup from"./components/Signup";
 
 export default class App extends Component {
   constructor() {
@@ -18,7 +18,7 @@ export default class App extends Component {
     };
   }
 
-handleChange = (e) => {
+  handleChange = (e) => {
     const value = e.target.value;
     e.preventDefault();
     this.setState({
@@ -30,24 +30,23 @@ handleChange = (e) => {
     console.log("confirm", this.state.confirmedpassword);
   };
 
-
-
   render() {
     return (
       <div className="App">
-        <Header isLoggedIn={this.state.isLoggedIn} logout={this.logout} />
+        <Header isLoggedIn={this.state.isLoggedIn} />
+        <Route exact path="/" render={() => <Main />} />
         <Route
-          path="/"
-          render={() => (
-            <Main />
-          )
-}
+          path="/user/signup"
+          render={(routerProps) => (
+            <Signup
+              {...this.state}
+              {...routerProps}
+              handleChange={this.handleChange}
+              handleSignup={this.handleSignup}
+            />
+          )}
         />
-
-
-        </div>
-        )
-        }
+      </div>
+    );
+  }
 }
-
-
