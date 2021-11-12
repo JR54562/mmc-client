@@ -1,9 +1,8 @@
-import React from "react";
-import "../App.css";
+import React from 'react';
 
-export default function Signup(props) {
-  return (
-    <form className="signupPage">
+export default function Login(props) {
+    return (
+        <form className="signupPage">
       <fieldset>
         <legend>Signup</legend>
 
@@ -24,7 +23,7 @@ export default function Signup(props) {
           />
 
           <small id="emailHelp" class="form-text text-muted">
-            Pick a username for your account.
+            Enter username for your account.
           </small>
         </div>
 
@@ -43,21 +42,7 @@ export default function Signup(props) {
             autoComplete="off"
           />
         </div>
-        <div class="form-group">
-          <label class="form-label mt-4">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword2"
-            placeholder="Password"
-            name="confirmedpassword"
-            value={props.confirmedpassword}
-            onChange={props.handleChange}
-            autoComplete="off"
-          />
-        </div>
+        
           </fieldset>
           <br/><br/>
           <div class="d-grid gap-2">
@@ -65,7 +50,6 @@ export default function Signup(props) {
   
 </div>
     </form>
-  );
+    );
 }
-
 

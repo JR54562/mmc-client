@@ -7,7 +7,7 @@ export default function Header(props) {
     <div className="header">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" data-bs-toggle="tab" href="#home">
+          <a class="nav-link active" data-bs-toggle="tab" href="/">
             Home
           </a>
         </li>
