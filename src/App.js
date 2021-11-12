@@ -1,27 +1,28 @@
+
+import React, { Component } from "react";
+import "bootswatch/dist/yeti/bootstrap.min.css";
+import Header from './components/Header';
 import "./App.css";
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Alert, Col, Container, Row } from "react-bootstrap";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Alert>This is a button</Alert>
-        <Button>Test Button</Button>
-      </header>
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      username: "",
+      password: "",
+      confirmedpassword: "",
+      userData: [],
+      isLoggedIn: false,
+    };
+  }
 
-      <Container>
-  <Row>
-    <Col>1 of 3</Col>
-    <Col>2 of 3</Col>
-    <Col>3 of 3</Col>
-  </Row>
-</Container>
-
-    </div>
-    
-  );
+  render() {
+    return (
+      <div className="App">
+        <Header isLoggedIn={this.state.isLoggedIn} logout={this.logout} />
+        </div>
+        )
+        }
 }
 
-export default App;
+
