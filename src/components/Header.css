@@ -1,4 +1,13 @@
 .header{
-    height: 80px;
+    height: 70px;
     background-color:#007ea7;
+    display: flex;
+}
+.header h1{
+    margin: 0px auto;
+}
+.name{
+    width:80%; 
+    padding-left:20%; 
+    padding-right:20%;
 }

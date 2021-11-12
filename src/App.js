@@ -38,7 +38,7 @@ handleChange = (e) => {
         <Header isLoggedIn={this.state.isLoggedIn} logout={this.logout} />
         <Route
           path="/"
-          render={(routerProps) => (
+          render={() => (
             <Main />
           )
 }
