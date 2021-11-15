@@ -19,7 +19,8 @@ export default class App extends Component {
       confirmedpassword: "",
       userData: [],
       isLoggedIn: false,
-      movies: {},
+      movie: {},
+      title:""
     };
   }
 
@@ -33,6 +34,7 @@ export default class App extends Component {
     console.log("username", this.state.username);
     console.log("password", this.state.password);
     console.log("confirm", this.state.confirmedpassword);
+    console.log("title: ", this.state.title);
   };
 
   handleSignup = (e) => {
@@ -62,7 +64,18 @@ export default class App extends Component {
     });
   };
   // Make api call for movie title
-  getMovie = (e) => {};
+  getMovie = (e) => {
+    let title = this.state.title
+    var replaced = title.split(' ').join('+');
+    console.log(title, replaced)
+    axios
+    .get(`http://www.omdbapi.com/?apikey=c145aa9c&t=${replaced}`)
+    .then((response) => {
+      this.setState({ movie: response.data });
+      console.log("this.state.movie", this.state.movie)
+    });
+  
+  };
 
   // rendering below this line
   render() {
