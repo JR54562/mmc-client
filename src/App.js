@@ -9,6 +9,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Search from "./components/Search";
+import Results from "./components/Results";
 
 export default class App extends Component {
   constructor() {
@@ -126,6 +127,15 @@ export default class App extends Component {
             />
           )}
         />
+
+<Route
+					exact
+					path="/movie/detail"
+					render={(routerProps) => (
+						<Results {...routerProps} movie={this.state.movie} />
+					)}
+				/>
+
       </div>
     );
   }

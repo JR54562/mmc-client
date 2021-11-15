@@ -26,12 +26,16 @@ export default function Search(props) {
           <button
             class="btn btn-lg btn-primary"
             type="button"
-            onClick={props.getMovie}
+                    //   onClick={props.getMovie}
+                    //   onClick={() => props.history.push('/drink/detail')}
+                      onClick={()=>{ props.getMovie(); props.history.push('/movie/detail')}}
           >
             Search
           </button>
         </div>
       </form>
-    </div>
+      </div>
+      
+
   );
 }
