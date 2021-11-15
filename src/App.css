@@ -12,3 +12,7 @@
   width: 1000px;
   border: 1px solid blue
 }
+#plot{
+  width: 600px;
+  margin: 0px auto;
+}

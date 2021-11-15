@@ -21,7 +21,7 @@ export default class App extends Component {
       userData: [],
       isLoggedIn: false,
       movie: {},
-      title:""
+      title: "",
     };
   }
 
@@ -66,16 +66,15 @@ export default class App extends Component {
   };
   // Make api call for movie title
   getMovie = (e) => {
-    let title = this.state.title
-    var replaced = title.split(' ').join('+');
-    console.log(title, replaced)
+    let title = this.state.title;
+    var replaced = title.split(" ").join("+");
+    console.log(title, replaced);
     axios
-    .get(`http://www.omdbapi.com/?apikey=c145aa9c&t=${replaced}`)
-    .then((response) => {
-      this.setState({ movie: response.data });
-      console.log("this.state.movie", this.state.movie)
-    });
-  
+      .get(`http://www.omdbapi.com/?apikey=c145aa9c&t=${replaced}`)
+      .then((response) => {
+        this.setState({ movie: response.data });
+        console.log("this.state.movie", this.state.movie);
+      });
   };
 
   // rendering below this line
@@ -128,14 +127,17 @@ export default class App extends Component {
           )}
         />
 
-<Route
-					exact
-					path="/movie/detail"
-					render={(routerProps) => (
-						<Results {...routerProps} movie={this.state.movie} />
-					)}
-				/>
-
+        <Route
+          exact
+          path="/movie/detail"
+          render={(routerProps) => (
+            <Results
+              {...this.state}
+              {...routerProps}
+              movie={this.state.movie}
+            />
+          )}
+        />
       </div>
     );
   }
