@@ -7,6 +7,8 @@ import axios from "axios";
 import Main from "./components/Main";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import Profile from "./components/Profile";
+import Search from "./components/Search";
 
 export default class App extends Component {
   constructor() {
@@ -17,6 +19,7 @@ export default class App extends Component {
       confirmedpassword: "",
       userData: [],
       isLoggedIn: false,
+      movies: {},
     };
   }
 
@@ -40,21 +43,28 @@ export default class App extends Component {
     };
     console.log(data);
     axios
-      .post("http://localhost:3000/users/signup", data)
+      .post("http://localhost:3000/user/signup", data)
       .then(() => {
-        this.showUserProfile()
+        this.showUserProfile();
       })
       .then(() => {
-        this.setState({isLoggedIn:true});
+        this.setState({ isLoggedIn: true });
       })
       .catch((error) => {
         console.log(error);
       });
-  }
+  };
+  // Show the user Profile
+  showUserProfile = (e) => {
+    axios.get("http://localhost:3000/user/profile", {}).then((response) => {
+      this.setState({ userData: response.data });
+      console.log("this.state.userdata", this.state.userData);
+    });
+  };
+  // Make api call for movie title
+  getMovie = (e) => {};
 
-
-
-  
+  // rendering below this line
   render() {
     return (
       <div className="App">
@@ -63,30 +73,46 @@ export default class App extends Component {
         <Route
           path="/user/signup"
           render={(routerProps) => (
-            (
-              <Signup
-                {...this.state}
-                {...routerProps}
-                handleChange={this.handleChange}
-                handleSignup={this.handleSignup}
-              />              
-            )           
+            <Signup
+              {...this.state}
+              {...routerProps}
+              handleChange={this.handleChange}
+              handleSignup={this.handleSignup}
+            />
           )}
         />
-<Route
+        <Route
           path="/user/login"
           render={(routerProps) => (
-            (
-              <Login
-                {...this.state}
-                {...routerProps}
-                handleChange={this.handleChange}
-                handleLogin={this.handleLogin}
-              />              
-            )           
+            <Login
+              {...this.state}
+              {...routerProps}
+              handleChange={this.handleChange}
+              handleLogin={this.handleLogin}
+            />
           )}
         />
-
+        <Route
+          path="/user/profile"
+          render={(routerProps) => (
+            <Profile
+              {...this.state}
+              {...routerProps}
+              userData={this.state.userData}
+            />
+          )}
+        />
+        <Route
+          path="/movies/search"
+          render={(routerProps) => (
+            <Search
+              {...this.state}
+              {...routerProps}
+              handleChange={this.handleChange}
+              getMovie={this.getMovie}
+            />
+          )}
+        />
       </div>
     );
   }
