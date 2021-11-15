@@ -4,7 +4,8 @@ import "bootswatch/dist/yeti/bootstrap.min.css";
 import Header from "./components/Header";
 import "./App.css";
 import Main from "./components/Main";
-import Signup from"./components/Signup";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
 
 export default class App extends Component {
   constructor() {
@@ -38,14 +39,30 @@ export default class App extends Component {
         <Route
           path="/user/signup"
           render={(routerProps) => (
-            <Signup
-              {...this.state}
-              {...routerProps}
-              handleChange={this.handleChange}
-              handleSignup={this.handleSignup}
-            />
+            (
+              <Signup
+                {...this.state}
+                {...routerProps}
+                handleChange={this.handleChange}
+                handleSignup={this.handleSignup}
+              />              
+            )           
           )}
         />
+<Route
+          path="/user/login"
+          render={(routerProps) => (
+            (
+              <Login
+                {...this.state}
+                {...routerProps}
+                handleChange={this.handleChange}
+                handleLogin={this.handleSignup}
+              />              
+            )           
+          )}
+        />
+
       </div>
     );
   }

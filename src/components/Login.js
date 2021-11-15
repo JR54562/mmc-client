@@ -1,10 +1,11 @@
 import React from 'react';
+import "../App.css";
 
 export default function Login(props) {
     return (
         <form className="signupPage">
       <fieldset>
-        <legend>Signup</legend>
+        <legend>Login</legend>
 
         <div class="form-group">
           <label  class="form-label mt-4">
