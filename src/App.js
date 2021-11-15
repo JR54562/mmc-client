@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import "bootswatch/dist/yeti/bootstrap.min.css";
 import Header from "./components/Header";
 import "./App.css";
+import axios from "axios";
 import Main from "./components/Main";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
@@ -31,6 +32,29 @@ export default class App extends Component {
     console.log("confirm", this.state.confirmedpassword);
   };
 
+  handleSignup = (e) => {
+    e.preventDefault();
+    const data = {
+      username: this.state.username,
+      password: this.state.password,
+    };
+    console.log(data);
+    axios
+      .post("http://localhost:3000/users/signup", data)
+      .then(() => {
+        this.showUserProfile()
+      })
+      .then(() => {
+        this.setState({isLoggedIn:true});
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+
+
+  
   render() {
     return (
       <div className="App">
@@ -57,7 +81,7 @@ export default class App extends Component {
                 {...this.state}
                 {...routerProps}
                 handleChange={this.handleChange}
-                handleLogin={this.handleSignup}
+                handleLogin={this.handleLogin}
               />              
             )           
           )}

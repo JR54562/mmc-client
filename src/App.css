@@ -8,3 +8,7 @@
   width: 600px;
   margin: 0px auto;
 }
+.collection{
+  width: 1000px;
+  border: 1px solid blue
+}
