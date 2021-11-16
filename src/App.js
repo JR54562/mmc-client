@@ -24,7 +24,11 @@ class App extends Component {
       title: "",
     };
   }
-
+  addMovie=(e) =>{
+    console.log("adding movie", this.state.movie)
+    const movieArr = Object.entries(this.state.movie)
+    console.log(movieArr)
+}
   handleChange = (e) => {
     const value = e.target.value;
     e.preventDefault();
@@ -90,6 +94,30 @@ class App extends Component {
       });
   };
 
+// Change PW script
+pwChange = (e) => {
+  console.log("pwChange function:");
+  e.preventDefault();
+  const data = {
+    username: this.state.username,
+    password: this.state.password,
+  };
+  console.log(data);
+  axios
+    .post("http://localhost:3000/user/editProfile", data)
+    .then((response) => {
+      console.log(response);
+      this.setState({ isLoggedIn: true });
+this.props.history.push(`/user/profile/${response.data.id}`)
+    })
+
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+
+
   // rendering below this line
   render() {
     return (
@@ -124,7 +152,8 @@ class App extends Component {
             <Profile
               {...this.state}
               {...routerProps}
-              userData={this.state.userData}
+              handleChange={this.handleChange}
+              pwChange={this.pwChange}
             />
           )}
         />
@@ -148,6 +177,7 @@ class App extends Component {
               {...this.state}
               {...routerProps}
               movie={this.state.movie}
+              addMovie={this.addMovie}
             />
           )}
         />

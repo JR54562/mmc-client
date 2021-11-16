@@ -24,6 +24,7 @@ export default function Results(props) {
                     <h6 class="card-subtitle text-muted">Box Office earnings: {movie.BoxOffice}</h6>
           </div>
         </div>
+        <button type="button" class="btn btn-success" onClick={() => { props.addMovie() }}>Add Movie!</button>
       </div>
     );
   } else {

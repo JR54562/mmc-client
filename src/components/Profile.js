@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Profile(props) {
   console.log(props);
@@ -7,7 +8,7 @@ export default function Profile(props) {
     <div className="profilePage">
       <div className="profileShow">
         <h1>Profile Page</h1>
-        <form className="signupPage">
+        <form className="signupPage" onSubmit={props.pwChange}>
           <fieldset>
             <legend>Change password </legend>
 
@@ -30,13 +31,13 @@ export default function Profile(props) {
           <br />
           <br />
           <div class="d-grid gap-2">
-            <button class="btn btn-lg btn-primary" type="button">
-              Submit
-            </button>
+          <input class="btn btn-lg btn-primary" type="submit" value="Submit" />
           </div>
               </form>
-              <br/>
+              <br />
+              <Link to="/movies/search">
               <button type="button" id="main_btns"class="btn btn-primary btn-lg">Search Titles</button>
+              </Link>
               <button type="button" id="main_btns" class="btn btn-primary btn-lg">View My Movies</button>
       </div>
     </div>
