@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import "bootswatch/dist/yeti/bootstrap.min.css";
 import Header from "./components/Header";
 import "./App.css";
@@ -11,7 +11,7 @@ import Profile from "./components/Profile";
 import Search from "./components/Search";
 import Results from "./components/Results";
 
-export default class App extends Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -34,10 +34,10 @@ export default class App extends Component {
     });
     console.log("username", this.state.username);
     console.log("password", this.state.password);
-    
   };
 
   handleSignup = (e) => {
+    console.log("signup");
     e.preventDefault();
     const data = {
       username: this.state.username,
@@ -46,23 +46,16 @@ export default class App extends Component {
     console.log(data);
     axios
       .post("http://localhost:3000/user/signup", data)
-      .then(() => {
-        this.showUserProfile();
-      })
-      .then(() => {
+      .then((response) => {
+        console.log(response);
         this.setState({ isLoggedIn: true });
+        this.props.history.push(`/user/profile/${response.data.id}`);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  // Show the user Profile
-  showUserProfile = (e) => {
-    axios.get("http://localhost:3000/user/profile", {}).then((response) => {
-      this.setState({ userData: response.data });
-      console.log("this.state.userdata", this.state.userData);
-    });
-  };
+  
   // Make api call for movie title
   getMovie = (e) => {
     let title = this.state.title;
@@ -75,33 +68,28 @@ export default class App extends Component {
         console.log("this.state.movie", this.state.movie);
       });
   };
-// Login script
+  // Login script
   logMeIn = (e) => {
-    console.log("login function:" )
+    console.log("login function:");
     e.preventDefault();
     const data = {
       username: this.state.username,
       password: this.state.password,
     };
-    console.log(data)
-    axios.post("http://localhost:3000/user/login", data)
+    console.log(data);
+    axios
+      .post("http://localhost:3000/user/login", data)
       .then((response) => {
         console.log(response);
-        // Other logic (maybe a redirect)        
+        this.setState({ isLoggedIn: true });
+        this.props.history.push(`/user/profile/${response.data.id}`);
       })
-      .then(() => {
-        this.showUserProfile()
-      })
-      .then(() => {
-        this.setState({isLoggedIn:true});
-      })
+
       .catch((error) => {
         console.log(error);
       });
-  }
-  
-  
-  
+  };
+
   // rendering below this line
   render() {
     return (
@@ -131,7 +119,7 @@ export default class App extends Component {
           )}
         />
         <Route
-          path="/user/profile"
+          path="/user/profile/:id"
           render={(routerProps) => (
             <Profile
               {...this.state}
@@ -167,3 +155,4 @@ export default class App extends Component {
     );
   }
 }
+export default withRouter(App);

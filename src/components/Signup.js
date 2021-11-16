@@ -3,7 +3,7 @@ import "../App.css";
 
 export default function Signup(props) {
   return (
-    <form className="signupPage">
+    <form className="signupPage" onSubmit={props.handleSignup}>
       <fieldset>
         <legend>Signup</legend>
 
@@ -61,7 +61,7 @@ export default function Signup(props) {
           </fieldset>
           <br/><br/>
           <div class="d-grid gap-2">
-  <button class="btn btn-lg btn-primary" type="button">Submit</button>
+          <input class="btn btn-lg btn-primary" type="submit" value="Submit" />
   
 </div>
     </form>
