@@ -34,7 +34,7 @@ export default class App extends Component {
     });
     console.log("username", this.state.username);
     console.log("password", this.state.password);
-    console.log("title: ", this.state.title);
+    
   };
 
   handleSignup = (e) => {
@@ -77,13 +77,14 @@ export default class App extends Component {
   };
 // Login script
   logMeIn = (e) => {
+    console.log("login function:" )
     e.preventDefault();
     const data = {
       username: this.state.username,
       password: this.state.password,
     };
-    axios
-      .post("http://localhost:3001/user/login", data)
+    console.log(data)
+    axios.post("http://localhost:3000/user/login", data)
       .then((response) => {
         console.log(response);
         // Other logic (maybe a redirect)        
