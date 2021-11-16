@@ -11,26 +11,7 @@ export default function Profile(props) {
           <fieldset>
             <legend>Change password </legend>
 
-            {/* <div class="form-group">
-          <label  class="form-label mt-4">
-            Username
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter username"
-            name="username"
-            value={props.username}
-            onChange={props.handleChange}
-            autoComplete="off"
-          />
-
-          <small id="emailHelp" class="form-text text-muted">
-            Enter username for your account.
-          </small>
-        </div> */}
+           
 
             <div class="form-group">
               <label class="form-label mt-4">Password</label>

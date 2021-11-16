@@ -34,7 +34,6 @@ export default class App extends Component {
     });
     console.log("username", this.state.username);
     console.log("password", this.state.password);
-    console.log("confirm", this.state.confirmedpassword);
     console.log("title: ", this.state.title);
   };
 
@@ -76,7 +75,32 @@ export default class App extends Component {
         console.log("this.state.movie", this.state.movie);
       });
   };
-
+// Login script
+  logMeIn = (e) => {
+    e.preventDefault();
+    const data = {
+      username: this.state.username,
+      password: this.state.password,
+    };
+    axios
+      .post("http://localhost:3001/user/login", data)
+      .then((response) => {
+        console.log(response);
+        // Other logic (maybe a redirect)        
+      })
+      .then(() => {
+        this.showUserProfile()
+      })
+      .then(() => {
+        this.setState({isLoggedIn:true});
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  
+  
+  
   // rendering below this line
   render() {
     return (
@@ -101,7 +125,7 @@ export default class App extends Component {
               {...this.state}
               {...routerProps}
               handleChange={this.handleChange}
-              handleLogin={this.handleLogin}
+              logMeIn={this.logMeIn}
             />
           )}
         />
