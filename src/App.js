@@ -11,6 +11,13 @@ import Profile from "./components/Profile";
 import Search from "./components/Search";
 import Results from "./components/Results";
 
+let BASE_URL = ""
+if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+  BASE_URL = 'http://localhost:3000'
+} else {
+  BASE_URL = 'https://my-movies-jr.herokuapp.com'
+}
+
 class App extends Component {
   constructor() {
     super();
@@ -49,7 +56,7 @@ class App extends Component {
     };
     console.log(data);
     axios
-      .post("http://localhost:3000/user/signup", data)
+      .post(`${BASE_URL}/user/signup`, data)
       .then((response) => {
         console.log(response);
         this.setState({ isLoggedIn: true });
@@ -82,7 +89,7 @@ class App extends Component {
     };
     console.log(data);
     axios
-      .post("http://localhost:3000/user/login", data)
+      .post(`${BASE_URL}/user/login`, data)
       .then((response) => {
         console.log(response);
         this.setState({ isLoggedIn: true });
@@ -104,7 +111,7 @@ pwChange = (e) => {
   };
   console.log(data);
   axios
-    .post("http://localhost:3000/user/editProfile", data)
+    .post(`${BASE_URL}/user/editProfile`, data)
     .then((response) => {
       console.log(response);
       this.setState({ isLoggedIn: true });
