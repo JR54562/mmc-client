@@ -11,11 +11,11 @@ import Profile from "./components/Profile";
 import Search from "./components/Search";
 import Results from "./components/Results";
 
-let BASE_URL = ""
-if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-  BASE_URL = 'http://localhost:3000'
+let BASE_URL = "";
+if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+  BASE_URL = "http://localhost:3000";
 } else {
-  BASE_URL = 'https://my-movies-jr.herokuapp.com'
+  BASE_URL = "https://my-movies-jr.herokuapp.com";
 }
 
 class App extends Component {
@@ -31,12 +31,11 @@ class App extends Component {
       title: "",
     };
   }
-  addMovie=(e) =>{
-    console.log("adding movie", this.state.movie)
-    const movieArr = Object.entries(this.state.movie)
-    console.log(movieArr)
-    
-}
+  addMovie = (e) => {
+    console.log("adding movie", this.state.movie);
+    const movieArr = Object.entries(this.state.movie);
+    console.log(movieArr);
+  };
   handleChange = (e) => {
     const value = e.target.value;
     e.preventDefault();
@@ -67,7 +66,7 @@ class App extends Component {
         console.log(error);
       });
   };
-  
+
   // Make api call for movie title
   getMovie = (e) => {
     let title = this.state.title;
@@ -102,29 +101,26 @@ class App extends Component {
       });
   };
 
-// Change PW script
-pwChange = (e) => {
-  console.log("pwChange function:");
-  e.preventDefault();
-  const data = {
-    username: this.state.username,
-    password: this.state.password,
+  // Change PW script
+  pwChange = (e) => {
+    console.log("pwChange function:");
+    e.preventDefault();
+    const data = {
+      username: this.state.username,
+      password: this.state.password,
+    };
+    console.log(data);
+    axios
+      .put(`${BASE_URL}/user/profile/:index`, data)
+      .then((response) => {
+        console.log(response);
+        this.setState({ isLoggedIn: true });
+        this.props.history.push(`/user/profile/${response.data.id}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
-  console.log(data);
-  axios
-    .post(`${BASE_URL}/user/editProfile`, data)
-    .then((response) => {
-      console.log(response);
-      this.setState({ isLoggedIn: true });
-this.props.history.push(`/user/profile/${response.data.id}`)
-    })
-
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-
 
   // rendering below this line
   render() {
