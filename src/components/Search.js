@@ -27,7 +27,7 @@ export default function Search(props) {
             class="btn btn-lg btn-primary"
             type="button"
                     
-                      onClick={()=>{ props.getMovie(); props.history.push('/movie/detail')}}
+            onClick={() => { props.getMovie(); props.history.push('/movie/detail')}}
           >
             Search
           </button>

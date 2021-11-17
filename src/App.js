@@ -35,6 +35,7 @@ class App extends Component {
     console.log("adding movie", this.state.movie)
     const movieArr = Object.entries(this.state.movie)
     console.log(movieArr)
+    
 }
   handleChange = (e) => {
     const value = e.target.value;
