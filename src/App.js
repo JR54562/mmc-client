@@ -29,13 +29,14 @@ class App extends Component {
       isLoggedIn: false,
       movie: {},
       title: "",
+      user_id: "",
     };
   }
 
   addMovie = (e) => {
     console.log("adding movie", this.state.movie);
     const movies = {
-      user_id: this.state.username,
+      user_id: this.state.user_id,
       title: this.state.movie.Title,
       year: this.state.movie.Year,
       rating: this.state.movie.Rated,
@@ -50,7 +51,7 @@ class App extends Component {
     axios.post(`${BASE_URL}/movie/`, movies)
     .then((response) => {
       console.log(response);
-      this.props.history.push(`/user/profile/${response.data.user_id}`);
+      this.props.history.push(`/user/profile/${response.data.user_id}`); // change to movie index
     })
     .catch((error) => {
       console.log(error);
@@ -83,7 +84,7 @@ class App extends Component {
       .post(`${BASE_URL}/user/signup`, data)
       .then((response) => {
         console.log(response);
-        this.setState({ isLoggedIn: true });
+        this.setState({ isLoggedIn: true, user_id: response.data.id});
         this.props.history.push(`/user/profile/${response.data.id}`);
       })
       .catch((error) => {
@@ -116,7 +117,7 @@ class App extends Component {
       .post(`${BASE_URL}/user/login`, data)
       .then((response) => {
         console.log(response);
-        this.setState({ isLoggedIn: true });
+        this.setState({ isLoggedIn: true, user_id: response.data.id });
         this.props.history.push(`/user/profile/${response.data.id}`);
       })
 
