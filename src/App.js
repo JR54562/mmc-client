@@ -31,11 +31,35 @@ class App extends Component {
       title: "",
     };
   }
+
   addMovie = (e) => {
     console.log("adding movie", this.state.movie);
-    const movieArr = Object.entries(this.state.movie);
-    console.log(movieArr);
-  };
+    const movies = {
+      user_id: this.state.username,
+      title: this.state.movie.Title,
+      year: this.state.movie.Year,
+      rating: this.state.movie.Rated,
+      runtime: this.state.movie.Runtime,
+      genre: this.state.movie.Genre,
+      actors: this.state.movie.Actors,
+      plot: this.state.movie.Plot,
+      poster: this.state.movie.Poster,
+      box_office: this.state.movie.BoxOffice
+    };
+    console.log('this is the new movie added', movies)
+    axios.post(`${BASE_URL}/movie/`, movies)
+    .then((response) => {
+      console.log(response);
+      this.props.history.push(`/user/profile/${response.data.user_id}`);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+  
+
+
   handleChange = (e) => {
     const value = e.target.value;
     e.preventDefault();
@@ -102,28 +126,28 @@ class App extends Component {
   };
 
   // Change PW script
-  pwChange = (e) => {
-    console.log("pwChange function:");
-    e.preventDefault();
-    const data = {
-      username: this.state.username,
-      password: this.state.password,
-    };
-    console.log(data);
-    axios
-      .put(`${BASE_URL}/user/profile/:index`, data)
-      .then((response) => {
-        console.log(response);
-        this.setState({ isLoggedIn: true });
-        this.props.history.push(`/user/profile/${response.data.id}`);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+pwChange = (e) => {
+  console.log("pwChange function:");
+  e.preventDefault();
+  const data = {
+    username: this.state.username,
+    password: e.target.password.value,
   };
+  console.log(data);
+  axios.put(`${BASE_URL}/user/profile/${e.target.id}`, data)
+    .then((response) => {
+      console.log(response);
+      this.setState({ isLoggedIn: true });
+      this.props.history.push(`/user/profile/${response.data.id}`);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  console.log("finished pw change")
+};
 
   // rendering below this line
-  render() {
+render(){
     return (
       <div className="App">
         <Header isLoggedIn={this.state.isLoggedIn} />
