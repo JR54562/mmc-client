@@ -12,7 +12,7 @@ export default function Header(props) {
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="tab" href="#profile">
+          <a class="nav-link" data-bs-toggle="tab" href="">
             Profile
           </a>
         </li>
