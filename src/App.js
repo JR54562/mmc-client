@@ -61,7 +61,8 @@ class App extends Component {
 };
 
   getCollection = (e) => {
-    axios.get(`${BASE_URL}/user/profile/${e.target.id}/movies`)
+    console.log(e.target.dataset.id);
+    axios.get(`${BASE_URL}/user/profile/${e.target.dataset.id}/movies`)
       .then((response) => {
         console.log(response);
         this.setState({ movies: response.data });
