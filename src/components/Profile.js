@@ -38,7 +38,7 @@ export default function Profile(props) {
               <Link to="/movies/search">
               <button type="button" id="main_btns"class="btn btn-primary btn-lg">Search Titles</button>
               </Link>
-              <button type="button" id="main_btns" class="btn btn-primary btn-lg">View My Movies</button>
+              <button type="button" id="main_btns" class="btn btn-primary btn-lg" onClick={props.getCollection}>View My Movies</button>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Search from "./components/Search";
 import Results from "./components/Results";
+import Collection from "./components/Collection";
 
 let BASE_URL = "";
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
@@ -30,6 +31,7 @@ class App extends Component {
       movie: {},
       title: "",
       user_id: "",
+      movies: {},
     };
   }
 
@@ -58,7 +60,18 @@ class App extends Component {
     });
 };
 
-  
+  getCollection = (e) => {
+    axios.get(`${BASE_URL}/user/profile/${e.target.id}/movies`)
+      .then((response) => {
+        console.log(response);
+        this.setState({ movies: response.data });
+        console.log("this.state.movies", this.state.movies);
+        this.props.history.push('/movie/collection');
+        })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
 
   handleChange = (e) => {
@@ -68,8 +81,8 @@ class App extends Component {
       ...this.state,
       [e.target.name]: value,
     });
-    console.log("username", this.state.username);
-    console.log("password", this.state.password);
+    // console.log("username", this.state.username);
+    // console.log("password", this.state.password);
   };
 
   handleSignup = (e) => {
@@ -183,6 +196,7 @@ render(){
               {...routerProps}
               handleChange={this.handleChange}
               pwChange={this.pwChange}
+              getCollection={this.getCollection}
             />
           )}
         />
@@ -210,6 +224,21 @@ render(){
             />
           )}
         />
+
+<Route
+          exact
+          path="/profile/:index/movies"
+          render={(routerProps) => (
+            <Collection
+              {...this.state}
+              {...routerProps}
+              movies={this.state.movies}
+              
+              
+            />
+          )}
+        />
+
       </div>
     );
   }
