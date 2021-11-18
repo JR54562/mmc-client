@@ -67,7 +67,7 @@ class App extends Component {
         console.log(response);
         this.setState({ movies: response.data });
         console.log("this.state.movies", this.state.movies);
-        this.props.history.push('/movie/collection');
+        this.props.history.push('/profile/:index/movies');
         })
       .catch((error) => {
         console.log(error);
