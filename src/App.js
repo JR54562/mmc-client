@@ -45,8 +45,8 @@ class App extends Component {
     axios.delete(`${BASE_URL}/movie/${delMovie}`)
     .then((response) => {
       console.log(response);
-      this.getCollection();
-      this.props.history.push('/profile/:index/movies'); // change to movie index
+      // need to refresh the collection!
+      // this.getCollection() //
     })
     .catch((error) => {
       console.log(error);
@@ -251,6 +251,7 @@ render(){
               movies={this.state.movies}
               delMovie={this.state.delMovie}
               deleteMovie={this.deleteMovie}
+              getCollection={this.getCollection}
             />
           )}
         />
