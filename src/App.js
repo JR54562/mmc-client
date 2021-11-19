@@ -11,6 +11,8 @@ import Profile from "./components/Profile";
 import Search from "./components/Search";
 import Results from "./components/Results";
 import Collection from "./components/Collection";
+import "bootstrap-table/dist/bootstrap-table.min.css"
+
 
 let BASE_URL = "";
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
