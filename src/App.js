@@ -34,8 +34,24 @@ class App extends Component {
       title: "",
       user_id: "",
       movies: {},
+      delMovie:"",
     };
   }
+
+  deleteMovie = (e) => {
+    console.log("deleteMovie")
+    const delMovie = this.state.movies[0].id
+    console.log(delMovie)
+    axios.delete(`${BASE_URL}/movie/${delMovie}`)
+    .then((response) => {
+      console.log(response);
+      this.getCollection();
+      this.props.history.push('/profile/:index/movies'); // change to movie index
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
 
   addMovie = (e) => {
     console.log("adding movie", this.state.movie);
@@ -84,9 +100,7 @@ class App extends Component {
       ...this.state,
       [e.target.name]: value,
     });
-    // console.log("username", this.state.username);
-    // console.log("password", this.state.password);
-  };
+    };
 
   handleSignup = (e) => {
     console.log("signup");
@@ -136,7 +150,6 @@ class App extends Component {
         this.setState({ isLoggedIn: true, user_id: response.data.id });
         this.props.history.push(`/user/profile/${response.data.id}`);
       })
-
       .catch((error) => {
         console.log(error);
       });
@@ -236,8 +249,8 @@ render(){
               {...this.state}
               {...routerProps}
               movies={this.state.movies}
-              
-              
+              delMovie={this.state.delMovie}
+              deleteMovie={this.deleteMovie}
             />
           )}
         />
