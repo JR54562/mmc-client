@@ -15,7 +15,7 @@ function Collection(props) {
          <button class="btn btn-lg btn-primary" type="button">Search Movies?</button>
       </Link>
           </div>
-          <table data-toggle="table" id="mt" class="table table-responsive table-hover table-bordered border-primary .w-auto">
+          <table data-toggle="table" id="mt" class="table table-responsive table-hover table-bordered border-primary ">
             <thead>
                   <tr class="table-primary">
                   <th scope="col">Delete?</th>
@@ -25,7 +25,7 @@ function Collection(props) {
                 <th scope="col">Runtime</th>
                 <th scope="col">Genre</th>
                 <th scope="col">Actors</th>
-                <th scope="col" >Plot</th>
+                <th id="plot" scope="col" >Plot</th>
                 <th scope="col">Poster</th>
                 <th scope="col">Box Office</th>
               </tr>
@@ -33,8 +33,8 @@ function Collection(props) {
       {props.movies.map((movie, index) => {
         return (
           // <div>{movie.title}</div>
-            <tr class="table-active">
-              <td onClick={props.deleteMovie}><button type="button"  class="btn btn-danger disabled">Delete!</button></td>
+            <tr  class="table-primary">
+              <td onClick={props.deleteMovie}><button type="button" id="delBtn" class="btn btn-danger disabled">Delete!</button></td>
               <td><h2>{movie.title}</h2></td>
               <td><p><strong>{movie.year}</strong></p></td>
               <td><p><strong>{movie.rating}</strong></p></td>

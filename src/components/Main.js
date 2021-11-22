@@ -15,13 +15,19 @@ export default function Main(props) {
                 <button id="main_btns" type="button" class="btn btn-success">Signup</button>
                 </Link>
                 <br /><br />
+                <h4>Let the "virtual shelf" help you organize your collection of movies. </h4>
     <img
 						className="collection"
 						src="/images/collection.png"
 						alt="collection of movies"
 					/> 
-  </div>
-</div>
+            </div>
+            <div>
+            
+        </div>
+        </div>
+        
+        
     );
 }
 

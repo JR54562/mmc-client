@@ -3,3 +3,13 @@
     width: 200px;
     
 }
+.delBtn{
+    background-color: red;
+}
+.tableRow{
+    background-color:#008cba
+}
+#plot{
+    width: 350px;
+    margin: 0px auto;
+  }

@@ -168,7 +168,7 @@ pwChange = (e) => {
     .then((response) => {
       console.log(response);
       this.setState({ isLoggedIn: true });
-      this.props.history.push(`/user/profile/${response.data.id}`);
+      this.props.history.push(`/user/profile/${e.target.id}`);
     })
     .catch((error) => {
       console.log(error);
