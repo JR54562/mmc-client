@@ -24,7 +24,7 @@ export default function Search(props) {
         <br />
         <div class="d-grid gap-2">
           <button
-            class="btn btn-lg btn-primary"
+            class="btn btn-lg btn-info"
             type="button"
             onClick={() => {
               props.getMovie();
