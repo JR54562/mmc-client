@@ -1,15 +1,21 @@
-
-#poster{
-    width: 200px;
-    
+#poster {
+  width: 200px;
 }
-.delBtn{
-    background-color: red;
+.delBtn {
+  background-color: red;
 }
-.tableRow{
-    background-color:#008cba
+.tableRow {
+  background-color: #008cba;
 }
-#plot{
-    width: 350px;
-    margin: 0px auto;
-  }
+#plot {
+  width: 350px;
+  margin: 0px auto;
+}
+#collNavBtns {
+  
+  height: 100px;
+  margin-left: 25px !important;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}

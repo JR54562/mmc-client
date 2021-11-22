@@ -43,7 +43,7 @@ export default function Signup(props) {
             autoComplete="off"
           />
         </div>
-        <div class="form-group">
+        {/* <div class="form-group">
           <label class="form-label mt-4">
             Confirm Password
           </label>
@@ -57,7 +57,7 @@ export default function Signup(props) {
             onChange={props.handleChange}
             autoComplete="off"
           />
-        </div>
+        </div> */}
           </fieldset>
           <br/><br/>
           <div class="d-grid gap-2">

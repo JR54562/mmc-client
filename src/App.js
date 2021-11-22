@@ -27,7 +27,6 @@ class App extends Component {
     this.state = {
       username: "",
       password: "",
-      confirmedpassword: "",
       userData: [],
       isLoggedIn: false,
       movie: {},
@@ -167,6 +166,7 @@ pwChange = (e) => {
   axios.put(`${BASE_URL}/user/profile/${e.target.id}`, data)
     .then((response) => {
       console.log(response);
+      console.log("target id", e.target.id)
       this.setState({ isLoggedIn: true });
       this.props.history.push(`/user/profile/${e.target.id}`);
     })
