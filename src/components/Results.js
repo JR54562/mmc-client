@@ -2,6 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 export default function Results(props) {
+  console.log(props)
   if (Object.keys(props.movie).length > 0) {
       const movie = props.movie;
       console.log(movie);
@@ -24,8 +25,19 @@ export default function Results(props) {
                     <h6 class="card-subtitle text-muted">Box Office earnings: {movie.BoxOffice}</h6>
           </div>
         </div>
-        <button type="button" class="btn btn-success" onClick={() => { props.addMovie() }}>Add Movie!</button>
-      </div>
+        <div id="rsltBtns">
+          <button type="button" class="btn btn-lg btn-success" onClick={() => { props.addMovie();props.history.push(`/user/profile/${props.id}`); }}>Add Movie!</button>
+        <button
+          class="btn btn-lg btn-primary ms-1"
+          type="button"
+            onClick={() => props.history.push("/movies/search")
+            
+            }
+        >
+          Search Again?
+        </button>
+        </div>
+        </div>
     );
   } else {
     return <Redirect to={"/movies/search"} />;

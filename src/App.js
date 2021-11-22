@@ -124,6 +124,7 @@ class App extends Component {
   // Make api call for movie title
   getMovie = (e) => {
     let title = this.state.title;
+    // this.setState({movie: {}})
     var replaced = title.split(" ").join("+");
     console.log(title, replaced);
     axios

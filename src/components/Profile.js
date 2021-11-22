@@ -7,10 +7,10 @@ export default function Profile(props) {
   return (
     <div className="profilePage">
       <div className="profileShow">
-        <h1>Profile Page</h1>
+        <h1>{props.username}'s Profile Page</h1>
         <form id={props.match.params.id} className="signupPage" onSubmit={props.pwChange}>
           <fieldset>
-            <legend>Change password </legend>
+            <legend>Change password? </legend>
 
            
 
