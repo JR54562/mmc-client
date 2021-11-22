@@ -44,7 +44,7 @@ export default function Signup(props) {
       <br />
       <br />
       <div class="d-grid gap-2">
-        <input class="btn btn-lg btn-primary" type="submit" value="Submit" />
+        <input class="btn btn-lg btn-info" type="submit" value="Submit" />
       </div>
     </form>
   );

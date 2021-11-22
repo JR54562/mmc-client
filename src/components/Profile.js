@@ -34,7 +34,7 @@ export default function Profile(props) {
           <br />
           <div class="d-grid gap-2">
             <input
-              class="btn btn-lg btn-primary"
+              class="btn btn-lg btn-info"
               type="submit"
               value="Submit"
             />
@@ -42,7 +42,7 @@ export default function Profile(props) {
         </form>
         <br />
         <Link to="/movies/search">
-          <button type="button" id="main_btns" class="btn btn-primary btn-lg">
+          <button type="button" id="main_btns" class="btn btn-success btn-lg">
             Search Titles
           </button>
         </Link>
@@ -50,7 +50,7 @@ export default function Profile(props) {
           type="button"
           id="main_btns"
           data-id={props.match.params.id}
-          class="btn btn-primary btn-lg"
+          class="btn btn-success btn-lg"
           onClick={props.getCollection}
         >
           View My Movies

@@ -8,7 +8,7 @@ function Collection(props) {
     <div className="parent">
       <div id="collNavBtns">
         <button
-          class="btn btn-lg btn-primary ms-1"
+          class="btn btn-lg btn-success"
           type="button"
           onClick={() => props.history.push("/movies/search")}
         >
@@ -16,7 +16,7 @@ function Collection(props) {
         </button>
 
         <button
-          class="btn btn-lg btn-primary"
+          class="btn btn-lg btn-info"
           type="button"
           onClick={() => props.history.push(`/user/profile/${props.user_id}`)}
         >

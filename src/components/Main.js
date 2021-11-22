@@ -10,13 +10,13 @@ export default function Main(props) {
       </div>
       <div class="card-body">
         <Link to="/user/login">
-          <button id="main_btns" type="button" class="btn btn-info">
+          <button id="main_btns" type="button" class="btn btn-lg btn-info">
             Login
           </button>
         </Link>
 
         <Link to="/user/signup">
-          <button id="main_btns" type="button" class="btn btn-success">
+          <button id="main_btns" type="button" class="btn btn-lg btn-success">
             Signup
           </button>
         </Link>
