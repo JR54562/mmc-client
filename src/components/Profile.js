@@ -8,11 +8,13 @@ export default function Profile(props) {
     <div className="profilePage">
       <div className="profileShow">
         <h1>{props.username}'s Profile Page</h1>
-        <form id={props.match.params.id} className="signupPage" onSubmit={props.pwChange}>
+        <form
+          id={props.match.params.id}
+          className="signupPage"
+          onSubmit={props.pwChange}
+        >
           <fieldset>
             <legend>Change password? </legend>
-
-           
 
             <div class="form-group">
               <label class="form-label mt-4">Password</label>
@@ -31,14 +33,28 @@ export default function Profile(props) {
           <br />
           <br />
           <div class="d-grid gap-2">
-          <input class="btn btn-lg btn-primary" type="submit" value="Submit" />
+            <input
+              class="btn btn-lg btn-primary"
+              type="submit"
+              value="Submit"
+            />
           </div>
-              </form>
-              <br />
-              <Link to="/movies/search">
-              <button type="button" id="main_btns"class="btn btn-primary btn-lg">Search Titles</button>
-              </Link>
-        <button type="button" id="main_btns" data-id={ props.match.params.id } class="btn btn-primary btn-lg" onClick={props.getCollection}>View My Movies</button>
+        </form>
+        <br />
+        <Link to="/movies/search">
+          <button type="button" id="main_btns" class="btn btn-primary btn-lg">
+            Search Titles
+          </button>
+        </Link>
+        <button
+          type="button"
+          id="main_btns"
+          data-id={props.match.params.id}
+          class="btn btn-primary btn-lg"
+          onClick={props.getCollection}
+        >
+          View My Movies
+        </button>
       </div>
     </div>
   );

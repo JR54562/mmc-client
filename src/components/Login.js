@@ -1,16 +1,14 @@
-import React from 'react';
+import React from "react";
 import "../App.css";
 
 export default function Login(props) {
-    return (
-        <form className="signupPage" onSubmit={props.logMeIn}>
+  return (
+    <form className="signupPage" onSubmit={props.logMeIn}>
       <fieldset>
         <legend>Login</legend>
 
         <div class="form-group">
-          <label  class="form-label mt-4">
-            Username
-          </label>
+          <label class="form-label mt-4">Username</label>
           <input
             type="text"
             class="form-control"
@@ -29,9 +27,7 @@ export default function Login(props) {
         </div>
 
         <div class="form-group">
-          <label  class="form-label mt-4">
-            Password
-          </label>
+          <label class="form-label mt-4">Password</label>
           <input
             type="password"
             class="form-control"
@@ -43,14 +39,12 @@ export default function Login(props) {
             autoComplete="off"
           />
         </div>
-        
-          </fieldset>
-          <br/><br/>
-          <div class="d-grid gap-2">
-  <input class="btn btn-lg btn-primary" type="submit" value="Submit" />
-  
-</div>
+      </fieldset>
+      <br />
+      <br />
+      <div class="d-grid gap-2">
+        <input class="btn btn-lg btn-primary" type="submit" value="Submit" />
+      </div>
     </form>
-    );
+  );
 }
-

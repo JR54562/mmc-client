@@ -1,0 +1,28 @@
+Github: mmc-server 
+
+MMC Backend 
+
+npm init
+nom install express
+npm install -g sequelize-cli
+npm install sequelize
+npm install pg
+sequelize
+sequelize init
+createdb movies_db
+
+sequelize model:generate --name Movie --attributes user_id:string,title:string,year:string,rating:string,runtime:string,genre:string,actors:string,plot:string,poster:string,box_office:string
+
+sequelize model:generate --name User --attributes username:string,password:string
+
+sequelize seed:generate --name demo-users
+sequelize seed:generate --name demo-movies
+
+
+
+
+Github: mmc-client
+
+Frontend (REACT)
+
+npx create-react-app mcc-backend

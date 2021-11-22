@@ -1,0 +1,15 @@
+USER STORIES
+
+- As a user, I want to be able to create a personal account with password.
+- I want to be able to update the password.
+- I want to search for movies by title.
+- I want to review the results.
+- I want to add a result to my personal collection. 
+- I want to view collection in a meaningful way. 
+  - By alpha sort
+  - By year sort
+  - By genre sort
+  - By BoxOffice results
+
+
+

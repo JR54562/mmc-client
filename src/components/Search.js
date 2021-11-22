@@ -12,7 +12,7 @@ export default function Search(props) {
             <input
               type="text"
               class="form-control"
-              id="exampleInputPassword1"              
+              id="exampleInputPassword1"
               name="title"
               value={props.title}
               onChange={props.handleChange}
@@ -26,15 +26,15 @@ export default function Search(props) {
           <button
             class="btn btn-lg btn-primary"
             type="button"
-                    
-            onClick={() => { props.getMovie(); props.history.push('/movie/detail')}}
+            onClick={() => {
+              props.getMovie();
+              props.history.push("/movie/detail");
+            }}
           >
             Search
           </button>
         </div>
       </form>
-      </div>
-      
-
+    </div>
   );
 }
