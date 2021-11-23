@@ -2,8 +2,6 @@ import React from "react";
 import "./Collection.css";
 
 function Collection(props) {
-  console.log(props.user_id);
-
   return (
     <div className="parent">
       <div id="collNavBtns">

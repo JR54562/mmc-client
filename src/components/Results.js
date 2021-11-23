@@ -2,10 +2,10 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 export default function Results(props) {
-  console.log(props);
+  
   if (Object.keys(props.movie).length > 0) {
     const movie = props.movie;
-    console.log(movie);
+    
     return (
       <div>
         <div class="card mb-3">
